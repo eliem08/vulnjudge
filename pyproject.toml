@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vulnjudge"
+version = "0.1.0"
+description = "Calibrated tiny decision model for bug-bounty vulnerability triage"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Ilyass Emssaad" }]
+keywords = ["security", "bug-bounty", "triage", "logistic-regression", "calibration"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Security",
+]
+
+[project.scripts]
+vulnjudge = "vulnjudge.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["vulnjudge*"]

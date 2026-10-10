@@ -1,0 +1,61 @@
+title,vuln_class,endpoint,auth_required,http_method,has_poc,response_diff,status_code,asset_type,asset_sensitivity,valid,high_severity
+SQLi in login form,sqli,/api/auth/login,false,POST,true,true,200,api,high,true,true
+IDOR on order history,idor,/api/orders/48291,true,GET,true,true,200,api,high,true,true
+Stored XSS in profile bio,xss,/api/users/profile,true,PUT,true,true,200,api,medium,true,false
+Reflected XSS in search,xss,/search,false,GET,true,false,200,web,low,true,false
+Auth bypass via debug header,auth_bypass,/api/admin/users,false,GET,true,true,200,api,high,true,true
+Stack trace info disclosure,info_disclosure,/api/debug/errors,false,GET,true,false,200,api,medium,true,false
+SSRF in webhook URL,ssrf,/api/integrations/webhook,true,POST,true,true,200,api,high,true,true
+CSRF on email change (no PoC),csrf,/account/email,true,POST,false,false,200,web,medium,true,false
+Open redirect (no PoC),open_redirect,/redirect,false,GET,false,false,302,web,low,false,false
+IDOR on invoice (403 no diff),idor,/api/invoices/9912,true,GET,false,false,403,api,high,false,false
+SQLi in product search,sqli,/api/products/search,false,GET,true,true,200,api,medium,true,true
+XSS in comments,xss,/api/comments,true,POST,true,true,201,api,medium,true,false
+OTP brute-force bypass,auth_bypass,/api/auth/verify-otp,false,POST,true,true,200,api,high,true,true
+Exposed .git directory,info_disclosure,/.git/HEAD,false,GET,true,false,200,web,medium,true,false
+SSRF claim without evidence,ssrf,/api/fetch-url,true,POST,false,false,400,api,medium,false,false
+IDOR on user settings,idor,/api/users/771/settings,true,GET,true,true,200,api,high,true,true
+Open redirect with PoC,open_redirect,/out,false,GET,true,false,302,web,low,true,false
+CSRF on password change,csrf,/settings/password,true,POST,true,false,200,web,high,true,false
+SSTI in PDF export,rce,/api/reports/export,true,POST,true,true,200,api,high,true,true
+XXE in SAML endpoint,xxe,/sso/saml/acs,false,POST,true,true,200,web,high,true,true
+LFI in file download,lfi,/api/files/download,true,GET,true,true,200,api,high,true,true
+Price tampering at checkout,business_logic,/api/checkout,true,POST,true,true,200,api,high,true,true
+Self-XSS in display name (no PoC),xss,/profile/name,true,PATCH,false,false,200,web,low,false,false
+SQLi false positive (WAF block),sqli,/api/search,false,GET,false,false,403,api,medium,false,false
+IDOR on public product,idor,/api/products/123,false,GET,false,false,200,api,low,false,false
+Admin panel reachable (no bypass),auth_bypass,/admin,false,GET,false,false,200,web,medium,false,false
+Version info disclosure,info_disclosure,/api/health,false,GET,true,false,200,api,low,true,false
+SSRF to cloud metadata,ssrf,/api/proxy,false,GET,true,true,200,api,high,true,true
+CSRF on logout (GET),csrf,/logout,true,GET,false,false,200,web,low,false,false
+Open redirect blocked by allowlist,open_redirect,/go,false,GET,false,false,400,web,low,false,false
+IDOR on avatar image,idor,/api/users/55/avatar,true,GET,true,false,200,api,low,true,false
+Stored XSS in admin notes,xss,/admin/notes,true,POST,true,true,201,web,high,true,true
+Blind SQLi (time-based),sqli,/api/reports,true,GET,true,true,200,api,high,true,true
+JWT none-algorithm bypass,auth_bypass,/api/me,false,GET,true,true,200,api,high,true,true
+Exposed database backup,info_disclosure,/backup.sql,false,GET,true,false,200,web,high,true,true
+LFI attempt sanitized,lfi,/api/docs,true,GET,false,false,200,api,low,false,false
+Coupon reuse logic flaw,business_logic,/api/coupons/apply,true,POST,true,true,200,api,medium,true,false
+XXE with entities disabled,xxe,/api/import,true,POST,false,false,200,api,medium,false,false
+RCE claim without evidence,rce,/api/convert,true,POST,false,false,200,api,high,false,false
+SSRF in integration test,ssrf,/api/integrations/test,true,POST,true,true,200,api,high,true,true
+IDOR on patient records (unauth),idor,/api/patients/1024/records,false,GET,true,true,200,api,high,true,true
+DOM XSS without PoC,xss,/dashboard,true,GET,false,false,200,web,medium,false,false
+Error-based SQLi,sqli,/api/users/filter,true,POST,true,true,500,api,high,true,true
+2FA skip endpoint,auth_bypass,/api/auth/2fa/skip,false,POST,true,true,200,api,high,true,true
+PII in debug logs,info_disclosure,/api/logs/recent,true,GET,true,true,200,api,high,true,true
+Open redirect with PoC (subdomain only),open_redirect,/r,false,GET,true,false,302,web,low,false,false
+CSRF on fund transfer,csrf,/api/transfer,true,POST,true,true,200,api,high,true,true
+LFI via static path,lfi,/static,false,GET,true,true,200,web,medium,true,false
+Referral abuse (no evidence),business_logic,/api/referral,true,POST,false,false,200,api,medium,false,false
+XXE in XML upload,xxe,/api/upload/xml,true,POST,true,true,200,api,high,true,true
+RCE in admin console,rce,/api/admin/exec,true,POST,true,true,200,api,high,true,true
+IDOR on public post,idor,/api/posts/99,false,GET,false,false,200,api,low,false,false
+Stored XSS in reviews,xss,/api/reviews,true,POST,true,true,201,web,medium,true,false
+SQLi login bypass,sqli,/login,false,POST,true,true,200,web,high,true,true
+Cookie tampering auth bypass,auth_bypass,/dashboard,false,GET,true,false,200,web,medium,true,false
+Exposed Swagger spec,info_disclosure,/swagger.json,false,GET,true,false,200,api,low,true,false
+SSRF claim on oEmbed (no PoC),ssrf,/api/oembed,false,GET,false,false,200,api,medium,false,false
+Plan-upgrade logic flaw,business_logic,/api/billing/upgrade,true,POST,true,true,200,api,high,true,true
+Open redirect (no PoC) duplicate,open_redirect,/link,false,GET,false,false,302,web,low,false,false
+IDOR on team members,idor,/api/teams/7/members,true,GET,true,true,200,api,medium,true,false
